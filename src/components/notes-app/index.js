@@ -42,14 +42,12 @@ class NotesApp extends React.Component {
   handleSubmit = () => {
     let { title, status } = this.state;
     status = status.toUpperCase();
-    let acceptedStatus = ["COMPLETED", "ACTIVE"];
-
     let newTodo = {
       title,
       status,
     };
 
-    if (acceptedStatus.includes(status) && title.length > 0) {
+    if (title.length > 0 && status.length > 0) {
       this.setState({
         todolist: [...this.state.todolist, newTodo],
         title: "",
@@ -57,7 +55,7 @@ class NotesApp extends React.Component {
         mode: "modeAll",
       });
     } else {
-      alert("Please enter a valid title or status ('COMPLETED' or 'ACTIVE')");
+      alert("Please enter a title or status.");
     }
   };
 
